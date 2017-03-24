@@ -5,7 +5,7 @@ if (!isset($_SESSION)) {
 }
 date_default_timezone_set('America/Fortaleza');
 $date = date('d/m/Y');
-$hora = date('H:m');
+$hora = date('H:i');
 ?>
 <!DOCTYPE html>
 <html>

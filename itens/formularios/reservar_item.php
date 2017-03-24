@@ -45,7 +45,7 @@ $cod_item = $_REQUEST['codigo'];
 	</head>
 	<body>
 		<div id="dominio" style="margin-top: 1%; margin-left: 39%;">Reserva de Equipamentos</div>
-		<div id="logo_usuario"><a href="../inicio.php"><img src="../../imagens/logo.png"></a></div>
+		<div id="logo_usuario"><a href="../../inicio.php"><img src="../../imagens/logo.png"></a></div>
 		<div id="corpo" style="margin-top:6%">
 
 			<form  method="POST" action="../validacoes/teste1.php">
@@ -106,10 +106,10 @@ $cod_item = $_REQUEST['codigo'];
 
 
 		<div id="dominio" style="margin-top: 40%; margin-left: 41%;">Horários Reservados</div>
-		<div id="usuario_rodape" style="margin-top: 65%;">Usuário:</div>
-			<div id="usuario" style="margin-top: 65%;"> <?php echo $_SESSION['nome_usuario'] ?> </div>
-			<div id="hora" style="margin-top: 66%;"> <?php echo $hora; ?></div> 
-			<div id="data" style="margin-top: 64.5%;"> <?php echo $date; ?></div>
+		<div id="usuario_rodape" style="margin-top: 67%;">Usuário:</div>
+			<div id="usuario" style="margin-top: 67%;"> <?php echo $_SESSION['nome_usuario'] ?> </div>
+			<div id="hora" style="margin-top: 68%;"> <?php echo $hora; ?></div> 
+			<div id="data" style="margin-top: 66.5%;"> <?php echo $date; ?></div>
 			<div id="sair"> <a href="../../sair.php">Sair</a></div> 
 			<div id="voltar"> <a href="javascript:history.back()">Voltar</a></div>
 	</body>

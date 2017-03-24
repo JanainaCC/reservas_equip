@@ -39,6 +39,6 @@ if (!empty($_POST['excluirbuscaAtivo'])) {
 	}else{
 		mysqli_commit($conexao);
 		mysqli_close($conexao);
-		echo "<script type='text/javascript'> alert ('USUÁRIO EXCLUÍDO !'); window.location.href='usuarios.php'</script>";
+		echo "<script type='text/javascript'> alert ('USUÁRIO EXCLUÍDO!'); window.location.href='javascript:history.back()'</script>";
 	}
 ?>

@@ -6,7 +6,7 @@ if (!isset($_SESSION)) {
 }
 date_default_timezone_set('America/Fortaleza');
 $date = date('d/m/Y');
-$hora = date('H:m');
+$hora = date('H:i');
 
 $item = $_REQUEST['buscarItem'];
 ?>
@@ -52,7 +52,7 @@ $item = $_REQUEST['buscarItem'];
 				$itens[$i][5]=$data_cadastro;
 				$itens[$i][6]=$usuario_cadastro;
 				$itens[$i][7]=$obs_item;
-				$itens[$i][8]="<form method='POST' action='reservar_item.php?codigo=$cod_item'><button type='submit' name='reservarItem' value='$i'>RESERVAR</button></form>";
+				$itens[$i][8]="<form method='POST' action='../formularios/reservar_item.php?codigo=$cod_item'><button type='submit' name='reservarItem' value='$i'>RESERVAR</button></form>";
 				$i++;
 			} while ($i<0);
 

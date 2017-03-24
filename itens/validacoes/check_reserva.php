@@ -39,7 +39,7 @@ if ((empty($data_check)) || (empty($cod_usuario)) || (empty($cod_reserva)) || (e
 					echo "<script type='text/javascript'> alert ('Não foi possível realizar check!'); window.location.href='../itens.php'; </script>";
 				}
 			}else{
-				echo "<script type='text/javascript'> alert ('Check realizado com sucesso!'); window.location.href='../itens.php'; </script>";
+				echo "<script type='text/javascript'> alert ('Check realizado com sucesso!'); window.location.href='../todas_reservas.php'; </script>";
 			}
 		}
 	}

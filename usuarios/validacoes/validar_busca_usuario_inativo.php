@@ -6,7 +6,7 @@ if (!isset($_SESSION)) {
 }
 date_default_timezone_set('America/Fortaleza');
 $date = date('d/m/Y');
-$hora = date('H:m');
+$hora = date('H:i');
 $usuario = $_REQUEST['buscarUsuarioInativo'];
 ?>
 
@@ -44,9 +44,9 @@ $usuario = $_REQUEST['buscarUsuarioInativo'];
 				$usuarios[$i][2]=$data_cadastro_busca;
 				$usuarios[$i][3]=$usuario_cadastro_busca;
 				$usuarios[$i][4]=$nivel_usuario_busca;
-				$usuarios[$i][5]="<form method='POST' action='ativar_usuario.php'><button type='submit' name='ativarInativo' value='$i'>ATIVAR</button></form>";
-				$usuarios[$i][6]="<form method='POST' action='formularios/form_alterar_usuario.php'><button type='submit' name='alterarAtivo' value='$i'>ALTERAR</button></form>";
-				$usuarios[$i][7]="<form method='POST' action='excluir_usuario.php'><button type='submit' name='excluirAtivo' value='$i'>EXCLUIR</button></form>";
+				$usuarios[$i][5]="<form method='POST' action='../ativar_usuario.php'><button type='submit' name='ativarInativo' value='$i'>ATIVAR</button></form>";
+				$usuarios[$i][6]="<form method='POST' action='../formularios/form_alterar_usuario.php'><button type='submit' name='alterarAtivo' value='$i'>ALTERAR</button></form>";
+				$usuarios[$i][7]="<form method='POST' action='../excluir_usuario.php'><button type='submit' name='excluirAtivo' value='$i'>EXCLUIR</button></form>";
 				$i++;
 			} while ($i<0);
 
@@ -69,7 +69,7 @@ $usuario = $_REQUEST['buscarUsuarioInativo'];
 							<br>";	
 					}
 				}else{
-				echo "NENHUM USUÁRIO ATIVO NO MOMENTO!";
+				echo "NENHUM USUÁRIO INATIVO NO MOMENTO!";
 				}
 				mysqli_close($conexao); 
 				?>
@@ -79,14 +79,14 @@ $usuario = $_REQUEST['buscarUsuarioInativo'];
 	}
 	?>
 	<div id="novousuario"> <a href="../formularios/NovoUsuario.php"> + Novo Usuário</a></div>
-	<div id="mostar"><a href="usuarios.php">Ver Usuarios Ativos</a></div>
+	<div id="mostar"><a href="../usuarios.php">Ver Usuarios Ativos</a></div>
 
 	<div id="usuario_rodape">Usuário:</div>
 	<div id="usuario"> <?php echo $_SESSION['nome_usuario'] ?> </div>
 	<div id="hora"> <?php echo $hora; ?></div> 
 	<div id="data"> <?php echo $date; ?></div>
 	<div id="sair"> <a href="../sair.php">Sair</a></div> 
-	<div id="voltar"> <a href="../inicio.php">Voltar</a></div> 
+	<div id="voltar"> <a href="../usuariosInativos.php">Voltar</a></div> 
 	
 </body>
 </html>

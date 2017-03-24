@@ -6,7 +6,7 @@ if (!isset($_SESSION)) {
 }
 date_default_timezone_set('America/Fortaleza');
 $date = date('d/m/Y');
-$hora = date('H:m');
+$hora = date('H:i');
 ?>
 
 <!DOCTYPE html>
@@ -51,8 +51,8 @@ $hora = date('H:m');
 				$usuarios[$i][3]=$usuario_cadastro_busca;
 				$usuarios[$i][4]=$nivel_usuario_busca;
 				$usuarios[$i][5]="<form method='POST' action='ativar_usuario.php'><button type='submit' name='ativarInativo' value='$i'>ATIVAR</button></form>";
-				$usuarios[$i][6]="<form method='POST' action='formularios/form_alterar_usuario.php'><button type='submit' name='alterarAtivo' value='$i'>ALTERAR</button></form>";
-				$usuarios[$i][7]="<form method='POST' action='excluir_usuario.php'><button type='submit' name='excluirAtivo' value='$i'>EXCLUIR</button></form>";
+				$usuarios[$i][6]="<form method='POST' action='formularios/form_alterar_usuario.php'><button type='submit' name='alterarInativo' value='$i'>ALTERAR</button></form>";
+				$usuarios[$i][7]="<form method='POST' action='excluir_usuario.php'><button type='submit' name='excluirInativo' value='$i'>EXCLUIR</button></form>";
 				$i++;
 			} while ($i<0);
 
@@ -75,7 +75,7 @@ $hora = date('H:m');
 							<br>";	
 					}
 				}else{
-				echo "NENHUM USUÁRIO ATIVO NO MOMENTO!";
+				echo "NENHUM USUÁRIO INATIVO NO MOMENTO!";
 				}
 				mysqli_close($conexao); 
 				?>
