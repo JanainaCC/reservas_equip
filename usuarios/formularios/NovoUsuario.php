@@ -29,10 +29,8 @@ $hora = date('H:m');
 				<br> 
 				<select id="nivel" name="nivel" required>
 					<option value="">Selecione Nivel:</option>
-					<option value="1">Desenvolvedor</option>
+					<option value="1">Usuário</option>
 					<option value="2">Administrador</option>
-					<option value="3">Controle de Reservas</option>
-					<option value="4">Professor</option>
 				</select>	
 				<br>
 				<br>
@@ -49,7 +47,7 @@ $hora = date('H:m');
 		<div id="usuario"> <?php echo $_SESSION['nome_usuario'] ?> </div>
 		<div id="hora"> <?php echo $hora; ?></div> 
 		<div id="data"> <?php echo $date; ?></div>
-		<div id="sair"> <a href="../sair.php">Sair</a></div> 
-		<div id="voltar"> <a href="javascript:history.back()">Voltar</a></div>
+		<div id="sair"> <a href="../../sair.php">Sair</a></div> 
+		<div id="voltar"> <a href="javascript: history.back()">Voltar</a></div>
 	</body>
 </html>

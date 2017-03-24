@@ -94,7 +94,7 @@ if (!isset($_SESSION['nome_usuario'])) {
 		<?php 
 		if($nivel==1){
 		?>
-		<a href= 'itens/minhas_reservas.php'>
+		<a href= 'itens/formularios/NovaReserva.php'>
 			<div style="margin-left: 35%" id="nomeitens">Nova Reserva</div>
 		</a>
 		<?php

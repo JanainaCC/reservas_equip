@@ -110,7 +110,7 @@ $cod_item = $_REQUEST['codigo'];
 			<div id="usuario" style="margin-top: 65%;"> <?php echo $_SESSION['nome_usuario'] ?> </div>
 			<div id="hora" style="margin-top: 66%;"> <?php echo $hora; ?></div> 
 			<div id="data" style="margin-top: 64.5%;"> <?php echo $date; ?></div>
-			<div id="sair"> <a href="../sair.php">Sair</a></div> 
+			<div id="sair"> <a href="../../sair.php">Sair</a></div> 
 			<div id="voltar"> <a href="javascript:history.back()">Voltar</a></div>
 	</body>
 </html>

@@ -7,6 +7,7 @@ if (!isset($_SESSION)) {
 date_default_timezone_set('America/Fortaleza');
 $date = date('d/m/Y');
 $hora = date('H:m');
+$item = $_REQUEST['buscarItem'];
 ?>
 
 
@@ -19,24 +20,17 @@ $hora = date('H:m');
 <body >
 	
 	<div id="dominio"> Itens</div>
-	<div id="logo_usuario"><a href="../../inicio.php"><img src="../../imagens/logo.png"></a></div>
-	<div id="busca">
-		<form method="POST" action="../validacoes/validar_busca_Item_ativo.php">
-			Buscar pela descrição:
-			<input type = 'text' name = 'buscarItem' title = 'Buscar Itens' required>
-			<input type = 'Submit' value = 'Enviar'>
-		</form>
-	</div>	
+	<div id="logo_usuario"><a href="../../inicio.php"><img src="../../imagens/logo.png"></a></div>	
 
 	<?php
 
-	$sql="SELECT * FROM t_item WHERE ativo_item='1'";
+	$sql="SELECT * FROM t_item WHERE descricao_item LIKE '$item%' AND ativo_item ='1'";
 	$result = mysqli_query($conexao,$sql);
 	if (!$result) {
 		echo "<script type='text/javascript'>alert ('NÃO FOI POSSIVEL EFETUAR CONSULTA NA TABELA t_item!!'); window.location.href='javascript:history.back()';</script>";
 		mysqli_close($conexao);
 	}else{
-		$itens = array(array("Código", "Tipo", "Descrição", "Valor", "Conteúdo", "Data do Cadastro", "Usuário que Cadastrou", "Observações", "OPÇÃO"));
+		$itens = array(array("Código", "Tipo", "Descrição", "Valor", "Conteúdo", "Data do Cadastro", "Usuário que Cadastrou", "Observações", "","","", ""));
 		$i=1;
 		while (($linha = mysqli_fetch_array($result))==true) {
 			$cod_item=$linha['cod_item'];
@@ -57,7 +51,10 @@ $hora = date('H:m');
 				$itens[$i][5]=$data_cadastro;
 				$itens[$i][6]=$usuario_cadastro;
 				$itens[$i][7]=$obs_item;
-				$itens[$i][8]="<form method='POST' action='reservar_item.php?codigo=$cod_item'><button type='submit' name='reservarItem' value='$i'>RESERVAR</button></form>";
+				$itens[$i][8]="<form method='POST' action='inativar_item.php'><button type='submit' name='inativarAtivo' value='$i'>INATIVAR</button></form>";
+				$itens[$i][9]="<form method='POST' action='formularios/form_alterar_item.php'><button type='submit' name='alterarAtivo' value='$i'>ALTERAR</button></form>";
+				$itens[$i][10]="<form method='POST' action='excluir_item.php'><button type='submit' name='excluirAtivo' value='$i'>EXCLUIR</button></form>";
+				$itens[$i][11]="<form method='POST' action='formularios/reservar_item.php?codigo=$cod_item'><button type='submit' name='reservarItem' value='$i'>RESERVAR</button></form>";
 				$i++;
 			} while ($i<0);
 
@@ -77,6 +74,9 @@ $hora = date('H:m');
 							  <td>".$itens[$j][6]."</td>
 							  <td>".$itens[$j][7]."</td>
 							  <td>".$itens[$j][8]."</td>
+							  <td>".$itens[$j][9]."</td>
+							  <td>".$itens[$j][10]."</td>
+							  <td>".$itens[$j][11]."</td>
 							  </tr><br>";		
 					}
 				}else{
@@ -89,13 +89,15 @@ $hora = date('H:m');
 	<?php	
 	}
 	?>
+	<div id="novousuario"> <a href="../formularios/NovoItem.php"> + Novo Item</a></div>
+	<div id="mostar"><a href="itensInativos.php">Ver Itens Inativos</a></div>
 
 	<div id="usuario_rodape">Usuário:</div>
 	<div id="usuario"> <?php echo $_SESSION['nome_usuario'] ?> </div>
 	<div id="hora"> <?php echo $hora; ?></div> 
 	<div id="data"> <?php echo $date; ?></div>
-	<div id="sair"> <a href="../../sair.php">Sair</a></div> 
-	<div id="voltar"> <a href="../minhas_reservas.php">Voltar</a></div> 
+	<div id="sair"> <a href="../sair.php">Sair</a></div> 
+	<div id="voltar"> <a href="../itens.php">Voltar</a></div> 
 	
 </body>
 </html>

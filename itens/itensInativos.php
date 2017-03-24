@@ -102,7 +102,7 @@ $hora = date('H:m');
 	<div id="hora"> <?php echo $hora; ?></div> 
 	<div id="data"> <?php echo $date; ?></div>
 	<div id="sair"> <a href="../sair.php">Sair</a></div> 
-	<div id="voltar"> <a href="../inicio.php">Voltar</a></div> 
+	<div id="voltar"> <a href="../itens/itens.php">Voltar</a></div> 
 	
 </body>
 </html>

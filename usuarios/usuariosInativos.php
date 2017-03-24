@@ -22,7 +22,7 @@ $hora = date('H:m');
 	<div id="busca">
 		<form method="POST" action="validacoes/validar_busca_usuario_inativo.php">
 			Buscar pelo Nome:
-			<input type = 'text' name = 'buscarUsuarioAtivo' title = 'Buscar Usuário' required>
+			<input type = 'text' name = 'buscarUsuarioInativo' title = 'Buscar Usuário' required>
 			<input type = 'Submit' value = 'Enviar'>
 		</form>
 	</div>	
@@ -92,7 +92,7 @@ $hora = date('H:m');
 	<div id="hora"> <?php echo $hora; ?></div> 
 	<div id="data"> <?php echo $date; ?></div>
 	<div id="sair"> <a href="../sair.php">Sair</a></div> 
-	<div id="voltar"> <a href="../inicio.php">Voltar</a></div> 
+	<div id="voltar"> <a href="javascript: history.back()">Voltar</a></div> 
 	
 </body>
 </html>

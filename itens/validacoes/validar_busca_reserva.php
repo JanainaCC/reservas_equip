@@ -1,37 +1,30 @@
 <?php
-include "../Verificasessao.php";
-include "../conexao.php";
+include "../../Verificasessao.php";
+include "../../conexao.php";
 if (!isset($_SESSION)) {
 	session_start();
 }
 date_default_timezone_set('America/Fortaleza');
 $date = date('d/m/Y');
 $hora = date('H:m');
+
+$reserva = $_REQUEST['buscarReserva'];
 ?>
 
 
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
 	<title></title>
 </head>
 <body >
-
-	<?php $cod_usuario = $_SESSION['cod_usuario']; ?>
-	<div id="dominio"> Minhas Reservas</div>
-	<div id="logo_usuario"><a href="../inicio.php"><img src="../imagens/logo.png"></a></div>
-
-	<div id="busca">
-		<form method="POST" action="validacoes/validar_busca_minhasreservas.php">
-			Buscar pela descrição:
-			<input type = 'text' name = 'buscarReserva' title = 'Buscar Reserva' required>
-			<input type = 'Submit' value = 'Enviar'>
-		</form>
-	</div>	
+	
+	<div id="dominio"> Reservas Encontradas</div>
+	<div id="logo_usuario"><a href="../../inicio.php"><img src="../../imagens/logo.png"></a></div>	
 
 	<?php
-	$sql = "SELECT * FROM t_reserva WHERE t_usuario_cod_usuario = '$cod_usuario' and cancela_reserva = '0' and reserva_checada = '0'"; 
+	$sql = "SELECT * FROM t_reserva WHERE desc_reserva LIKE '$reserva%' and cancela_reserva = '0' and reserva_checada = '0'"; 
 	$result = mysqli_query($conexao, $sql);
 
 	if(!$result){
@@ -60,7 +53,7 @@ $hora = date('H:m');
 					$reservas_feitas[$i][5]=$descricao;
 					$reservas_feitas[$i][6]=$cod_item;
 					$reservas_feitas[$i][7]=$cod_usuario;
-					$reservas_feitas[$i][8]="<form method='POST' action='cancelar_reserva.php'><button type='submit' name='cancelarReserva' value='$cod_reserva'>Cancelar Reserva</button></form>";
+					$reservas_feitas[$i][8]="<form method='POST' action='formularios/form_check.php'><button type='submit' name='codigo' value='$cod_reserva'>Check</button></form>";
 					$i++;
 				} while ($i<0);
 		}?>
@@ -82,7 +75,7 @@ $hora = date('H:m');
 							  </tr><br>";		
 					}
 				}else{
-					echo "NENHUMA RESERVA FEITA NO MOMENTO!";
+					echo "NENHUMA RESERVA ENCONTRADA!";
 				}	
 				mysqli_close($conexao);
 				?>
@@ -91,18 +84,13 @@ $hora = date('H:m');
 		<?php	
 		}
 		?>
-	<div id="novousuario"> <a href="formularios/NovaReserva.php"  style="background:rgb(233,228,197);padding:1%;"> + Nova Reserva</a></div>
 
 	<div id="usuario_rodape">Usuário:</div>
 	<div id="usuario"> <?php echo $_SESSION['nome_usuario'] ?> </div>
 	<div id="hora"> <?php echo $hora; ?></div> 
 	<div id="data"> <?php echo $date; ?></div>
 	<div id="sair"> <a href="../sair.php">Sair</a></div> 
-	<div id="voltar"> <a href="../inicio.php">Voltar</a></div> 
+	<div id="voltar"> <a href="../todas_reservas.php">Voltar</a></div> 
 	
 </body>
 </html>
-
-
-
-

@@ -21,7 +21,7 @@ $hora = date('H:m');
 	<div id="dominio"> Itens</div>
 	<div id="logo_usuario"><a href="../inicio.php"><img src="../imagens/logo.png"></a></div>
 	<div id="busca">
-		<form method="POST" action="validacoes/validar_busca_Item_ativo.php">
+		<form method="POST" action="validacoes/validar_busca_item_ativoGeral.php">
 			Buscar pela descrição:
 			<input type = 'text' name = 'buscarItem' title = 'Buscar Itens' required>
 			<input type = 'Submit' value = 'Enviar'>
@@ -36,7 +36,7 @@ $hora = date('H:m');
 		echo "<script type='text/javascript'>alert ('NÃO FOI POSSIVEL EFETUAR CONSULTA NA TABELA t_item!!'); window.location.href='javascript:history.back()';</script>";
 		mysqli_close($conexao);
 	}else{
-		$itens = array(array("Código", "Tipo", "Descrição", "Valor", "Conteúdo", "Data do Cadastro", "Usuário que Cadastrou", "Observações", "OPÇÕES","","", ""));
+		$itens = array(array("Código", "Tipo", "Descrição", "Valor", "Conteúdo", "Data do Cadastro", "Usuário que Cadastrou", "Observações", "","","", ""));
 		$i=1;
 		while (($linha = mysqli_fetch_array($result))==true) {
 			$cod_item=$linha['cod_item'];
@@ -103,7 +103,7 @@ $hora = date('H:m');
 	<div id="hora"> <?php echo $hora; ?></div> 
 	<div id="data"> <?php echo $date; ?></div>
 	<div id="sair"> <a href="../sair.php">Sair</a></div> 
-	<div id="voltar"> <a href="../inicio.php">Voltar</a></div> 
+	<div id="voltar"> <a href="../itens/itensInativos.php">Voltar</a></div> 
 	
 </body>
 </html>

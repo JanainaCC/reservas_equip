@@ -22,9 +22,9 @@ $hora = date('H:m');
 	<div id="logo_usuario"><a href="../inicio.php"><img src="../imagens/logo.png"></a></div>
 
 	<div id="busca">
-		<form method="POST" action="">
+		<form method="POST" action="validacoes/validar_busca_reserva.php">
 			Buscar pela descrição:
-			<input type = 'text' name = 'buscarItem' title = 'Buscar Itens' required>
+			<input type = 'text' name = 'buscarReserva' title = 'Buscar Reserva' required>
 			<input type = 'Submit' value = 'Enviar'>
 		</form>
 	</div>	
