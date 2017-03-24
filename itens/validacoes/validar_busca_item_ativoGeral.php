@@ -51,10 +51,10 @@ $item = $_REQUEST['buscarItem'];
 				$itens[$i][5]=$data_cadastro;
 				$itens[$i][6]=$usuario_cadastro;
 				$itens[$i][7]=$obs_item;
-				$itens[$i][8]="<form method='POST' action='inativar_item.php'><button type='submit' name='inativarAtivo' value='$i'>INATIVAR</button></form>";
-				$itens[$i][9]="<form method='POST' action='formularios/form_alterar_item.php'><button type='submit' name='alterarAtivo' value='$i'>ALTERAR</button></form>";
-				$itens[$i][10]="<form method='POST' action='excluir_item.php'><button type='submit' name='excluirAtivo' value='$i'>EXCLUIR</button></form>";
-				$itens[$i][11]="<form method='POST' action='formularios/reservar_item.php?codigo=$cod_item'><button type='submit' name='reservarItem' value='$i'>RESERVAR</button></form>";
+				$itens[$i][8]="<form method='POST' action='../inativar_item.php'><button type='submit' name='inativarAtivo' value='$i'>INATIVAR</button></form>";
+				$itens[$i][9]="<form method='POST' action='../formularios/form_alterar_item.php'><button type='submit' name='alterarAtivo' value='$i'>ALTERAR</button></form>";
+				$itens[$i][10]="<form method='POST' action='../excluir_item.php'><button type='submit' name='excluirAtivo' value='$i'>EXCLUIR</button></form>";
+				$itens[$i][11]="<form method='POST' action='../formularios/reservar_item.php?codigo=$cod_item'><button type='submit' name='reservarItem' value='$i'>RESERVAR</button></form>";
 				$i++;
 			} while ($i<0);
 

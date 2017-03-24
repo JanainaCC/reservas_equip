@@ -84,7 +84,7 @@ $cod_item = $_REQUEST['codigo'];
 		</div>	
 
 	
-		<div id="tabela" style="margin-top: 41%;"> 
+		<div id="tabela" style="margin-top: 43%;"> 
 			<table border="1" width="100%" >
 				<?php
 				if ($i!=1) {

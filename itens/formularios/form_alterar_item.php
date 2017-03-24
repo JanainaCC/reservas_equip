@@ -38,10 +38,10 @@ if (!empty($_POST['alterarBuscaInativo'])) {
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../../style.css">
-		<title>Alterar Itens</title>
+		<title>Alterar Item</title>
 	</head>
 	<body>
-		<div id="dominio" style="margin-top: 1%; margin-left: 44%;">Alterar Itens</div>
+		<div id="dominio" style="margin-top: 1%; margin-left: 44%;">Alterar Item</div>
 		<div id="logo_usuario"><a href="../inicio.php"><img src="../../imagens/logo.png"></a></div>
 		<div id="corpo">
 
